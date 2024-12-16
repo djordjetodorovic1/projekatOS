@@ -1,4 +1,4 @@
 public class File {
-    private String name;
-    private String content;
+    private String fileName;
+    private String fileContent;
 }

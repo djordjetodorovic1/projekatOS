@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
 public class HDD {
-    private int size;
-    private ArrayList<MemoryBlock> memory;
+    private int sizHDD;
+    private ArrayList<MemoryBlock> memoryHDD;
 }

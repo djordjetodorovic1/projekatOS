@@ -1,5 +1,5 @@
 public class Directory {
-    private String name;
-    private String[] filesAddress;
+    private String directoryName;
+    private String[] directoryFilesAddress;
     private Directory[] listDirectory;
 }

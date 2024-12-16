@@ -1,40 +1,40 @@
 public class MemoryBlock {
-    private int address;
-    private int size;
-    private boolean allocated;
+    private int memoryBlockAddress;
+    private int memoryBlockSize;
+    private boolean memoryBlockAllocated;
 
-    public MemoryBlock(int address, int size, boolean allocated) {
-        this.address = address;
-        this.size = size;
-        this.allocated = allocated;
+    public MemoryBlock(int memoryBlockAddress, int memoryBlockSize, boolean memoryBlockAllocated) {
+        this.memoryBlockAddress = memoryBlockAddress;
+        this.memoryBlockSize = memoryBlockSize;
+        this.memoryBlockAllocated = memoryBlockAllocated;
     }
 
-    public int getAddress() {
-        return address;
+    public int getMemoryBlockAddress() {
+        return memoryBlockAddress;
     }
 
-    public void setAddress(int address) {
-        this.address = address;
+    public void setMemoryBlockAddress(int memoryBlockAddress) {
+        this.memoryBlockAddress = memoryBlockAddress;
     }
 
-    public int getSize() {
-        return size;
+    public int getMemoryBlockSize() {
+        return memoryBlockSize;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public void setMemoryBlockSize(int memoryBlockSize) {
+        this.memoryBlockSize = memoryBlockSize;
     }
 
-    public boolean isAllocated() {
-        return allocated;
+    public boolean isMemoryBlockAllocated() {
+        return memoryBlockAllocated;
     }
 
-    public void setAllocated(boolean allocated) {
-        this.allocated = allocated;
+    public void setMemoryBlockAllocated(boolean memoryBlockAllocated) {
+        this.memoryBlockAllocated = memoryBlockAllocated;
     }
 
     @Override
     public String toString() {
-        return "Adresa: " + address + " velicina: " + size + " status: " + allocated;
+        return "Adresa: " + memoryBlockAddress + " velicina: " + memoryBlockSize + " status: " + memoryBlockAllocated;
     }
 }

@@ -1,33 +1,36 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class ProcessManager implements Scheduler {
-    private Queue<Process> pm;
+    private PriorityQueue<Process> processes;
 
     ProcessManager() {
-        this.pm = new PriorityQueue<>(Comparator.comparingDouble(p->p.getBurstTime()));
+        this.processes = new PriorityQueue<>(Comparator.comparing(Process::getProcessBurstTime));
     }
 
-    public synchronized void add(Process p) {
-        pm.offer(p);
+    public synchronized void addProcess(Process p) {
+        processes.offer(p);
+        p.ready();
     }
 
     public synchronized boolean isEmpty() {
-        return pm.isEmpty();
+        return processes.isEmpty();
+    }
+
+    public synchronized void removeProcess(Process p) {
+        processes.remove(p);
     }
 
     @Override
     public synchronized Process scheduleNextProcess() {
-        return pm.poll();
+        return processes.poll();
     }
 
     @Override
     public String toString() {
-        String result = "";
-        for (Process p : pm) {
-            result += p + "\n";
-        }
-        return result;
+        StringBuilder sb = new StringBuilder();
+        for (Process p : processes)
+            sb.append(p + "\n");
+        return sb.toString();
     }
 }

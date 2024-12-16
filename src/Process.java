@@ -1,51 +1,51 @@
 public class Process {
-    private static volatile int counter = 0;
-    private int id;
-    private ProcessState state;
-    private String code;
-    private double burstTime;
+    private static volatile int counterID = 0;
+    private final int processID;
+    private ProcessState processState;
+    private String processCode;
+    private double processBurstTime;
 
     Process(double burstTime) {
-        this.id = counter++;
-        this.state = ProcessState.NEW;
-        this.burstTime = burstTime;
+        this.processID = counterID++;
+        this.processState = ProcessState.NEW;
+        this.processBurstTime = burstTime;
     }
 
-    Process(double burstTime, String code) {
-        this(burstTime);
-        this.code = code;
+    Process(double processBurstTime, String processCode) {
+        this(processBurstTime);
+        this.processCode = processCode;
     }
 
     public void start() {
-        this.state = ProcessState.RUNNING;
+        this.processState = ProcessState.RUNNING;
     }
 
     public void terminate() {
-        this.state = ProcessState.TERMINATED;
+        this.processState = ProcessState.TERMINATED;
     }
 
     public void block() {
-        this.state = ProcessState.BLOCKED;
+        this.processState = ProcessState.BLOCKED;
     }
 
-    public void unblock() {
-        this.state = ProcessState.READY;
+    public void ready() {
+        this.processState = ProcessState.READY;
     }
 
-    public ProcessState getState() {
-        return this.state;
+    public ProcessState getProcessState() {
+        return this.processState;
     }
 
-    public String getCode() {
-        return this.code;
+    public String getProcessCode() {
+        return this.processCode;
     }
 
-    public double getBurstTime() {
-        return this.burstTime;
+    public double getProcessBurstTime() {
+        return this.processBurstTime;
     }
 
     @Override
     public String toString() {
-        return "Process:" + "id=" + this.id + ", state=" + this.state + ", code='" + this.code + '\'' + ", burstTime=" + this.burstTime;
+        return "Process: id=" + this.processID + ", state=" + this.processState + ", code='" + this.processCode + "', burstTime=" + this.processBurstTime;
     }
 }

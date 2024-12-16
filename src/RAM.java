@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
 public class RAM {
-    private int size;
+    private int sizeRAM;
     private ArrayList<MemoryBlock> memory;
 }
